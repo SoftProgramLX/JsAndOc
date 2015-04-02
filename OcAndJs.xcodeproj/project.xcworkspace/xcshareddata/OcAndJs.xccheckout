@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3F07A45D-A085-40A0-A0DE-A00EF11E83FD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>OcAndJs</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D5FB58C5D3ABC3368CD70B3D09AD759E7D8074E4</key>
+		<string>https://github.com/SoftProgramLX/OcAndJs.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OcAndJs.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D5FB58C5D3ABC3368CD70B3D09AD759E7D8074E4</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/SoftProgramLX/OcAndJs.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D5FB58C5D3ABC3368CD70B3D09AD759E7D8074E4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D5FB58C5D3ABC3368CD70B3D09AD759E7D8074E4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OcAndJs</string>
+		</dict>
+	</array>
+</dict>
+</plist>
