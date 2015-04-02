@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<title>OCAndJS</title>
+		<script type="text/javascript">
+			function jsCallToOC() {
+				window.location.href = "objc://jsCallToOC#param#来到百度#param#http://www.baidu.com";
+			}
+
+			function postStr(string) {
+			  	return 'I am the return parameter JS';
+			}
+
+			function changeImage()
+			{
+				element=document.getElementById('myimage')
+				if (element.src.match("2"))
+				  {
+				  	element.src="/Users/apple/Desktop/1.jpg";
+				  }
+				else
+				  {
+				  	element.src="/Users/apple/Desktop/2.jpg";
+				  }
+			}
+		</script>
+
+
+		</br>
+		</br>
+		<button onclick="jsCallToOC()" style="width:160px;height:60px;">
+		 	<h1>jsCallOC</h1>
+		</button>
+		<h2>
+			<p>Please click the button above to achieve JS call OC</p>
+		</h2>
+		</br>
+
+		<video width="720" height="610" controls="controls">
+			<source src="Unix.ogg" type="video/ogg">
+			<source src="U/Users/apple/Desktop/Unix.mp4" type="video/mp4">
+			<source src="Unix.mp4" type="video/mp4">
+		</video>
+		
+		</br>
+		<img id="myimage" onclick="changeImage()" src="/Users/apple/Desktop/1.jpg">
+
+		<h1>
+			<p>Please click the picture can be replaced</p>
+		</h1>
+
+	</body>
+</html>
