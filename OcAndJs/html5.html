@@ -4,50 +4,41 @@
 		<title>OCAndJS</title>
 		<script type="text/javascript">
 			function jsCallToOC() {
-				window.location.href = "objc://jsCallToOC#param#来到百度#param#http://www.baidu.com";
+				window.location.href = "objc://jsCallToOC#param#github地址#param#https://github.com/SoftProgramLX/OcAndJs";
 			}
 
 			function postStr(string) {
 			  	return 'I am the return parameter JS';
 			}
 
-			function changeImage()
-			{
-				element=document.getElementById('myimage')
-				if (element.src.match("2"))
-				  {
-				  	element.src="/Users/apple/Desktop/1.jpg";
-				  }
-				else
-				  {
-				  	element.src="/Users/apple/Desktop/2.jpg";
-				  }
-			}
 		</script>
+        
+        <style type="text/css">
+            body {
+                text-align: center;
+                -webkit-user-select: none;
+            }
+        
+            button {
+                font-size:24pt;
+                width:460px;
+                height:5em;
+            }
+            
+            .pclass {
+                font-size:28pt;
+            }
+        </style>
 
-
-		</br>
-		</br>
-		<button onclick="jsCallToOC()" style="width:160px;height:60px;">
-		 	<h1>jsCallOC</h1>
-		</button>
-		<h2>
-			<p>Please click the button above to achieve JS call OC</p>
-		</h2>
-		</br>
-
-		<video width="720" height="610" controls="controls">
-            <source src="Unix.ogg" type="video/ogg">
-            <source src="/Users/apple/Desktop/Unix.mp4" type="video/mp4">
-			<source src="Unix.mp4" type="video/mp4">
-		</video>
+        </br></br></br>
+        <p>
+            <button onclick="jsCallToOC()">
+                <h1>jsCallOC</h1>
+            </button>
+        </p>
+        
+        <p class="pclass">Please click the button above to achieve JS call OC</p>
 		
-		</br>
-		<img id="myimage" onclick="changeImage()" src="/Users/apple/Desktop/1.jpg">
-
-		<h1>
-			<p>Please click the picture can be replaced</p>
-		</h1>
-
 	</body>
 </html>
+

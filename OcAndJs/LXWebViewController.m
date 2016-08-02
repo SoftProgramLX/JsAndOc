@@ -77,7 +77,7 @@
 - (void)jsCallToOC:(NSArray *)params
 {
     dataArr = params;
-    alertV = [[UIAlertView alloc] initWithTitle:nil message:@"js已经调用了OC方法，点击确定显示，点击取触发OC调用js" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alertV = [[UIAlertView alloc] initWithTitle:@"js已经调用了OC方法" message:@"查看控制台的信息，点击取消会再触发OC调用js" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     alertV.tag = 9666;
     [alertV show];
     
