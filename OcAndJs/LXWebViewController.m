@@ -40,7 +40,7 @@
 }
 
 #pragma mark -- UIWebViewDelegate委托定义方法
-#pragma mark -- UIWebViewDelegate委托定义方法
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     NSString *path =  [[request URL] absoluteString];
     if ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0) {
@@ -111,7 +111,7 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    
+    [self deletePrompt];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
@@ -119,9 +119,27 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - private methods
+
+//用于js统计
+- (void)jsStatistics
+{
+    NSString *systemUserAgent = [self.webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
+    
+    if (!([systemUserAgent rangeOfString:@"****-app-iphone Version/"].length > 0)) {
+        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[(__bridge NSString *)kCFBundleVersionKey];
+        systemUserAgent = [systemUserAgent stringByAppendingFormat:@" ***-app-iphone Version/%@", currentVersion];
+    }
+    
+    NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:systemUserAgent, @"UserAgent", nil];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+}
+
+//禁止复制
+- (void)deletePrompt
+{
+    [self.webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitUserSelect='none';"];
+    [self.webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none';"];
 }
 
 @end
