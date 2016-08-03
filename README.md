@@ -20,7 +20,8 @@
   NSString *str = [self.webView stringByEvaluatingJavaScriptFromString:@"postStr('ocToJs')"];
   //输出str为I am the return parameter JS, and param ocToJs，正式js中postStr方法的返回值。
 ```
-需注意的是正确书写@"postStr('ocToJs')"的格式，postStr为js方法，ocToJs是OC传递给JS的参数。
+	需注意的是正确书写@"postStr('ocToJs')"的格式，postStr为js方法，ocToJs是OC传递给JS的参数。
+
 -----
 
 ##`二.JS调用OC:`
@@ -36,11 +37,12 @@
 		window.location.href = "objc://jsCallToOC#param#github地址#param#https://github.com/SoftProgramLX/OcAndJs";
 	}
 ```
-说明：<br>1.“objc://”为自定义的OC识别JS调用的标识<br>
-2.“jsCallToOC”为需调用的OC方法<br>
-3.“#param#”为自定义的方法与参数或参数与参数的分隔符<br>
-4.“github地址”为js传递给OC的第一个参数<br>
-5.“https://github.com/SoftProgramLX/OcAndJs”为js传递给OC的第二个参数<br>
+	说明：<br>
+	1.“objc://”为自定义的OC识别JS调用的标识<br>
+	2.“jsCallToOC”为需调用的OC方法<br>
+	3.“#param#”为自定义的方法与参数或参数与参数的分隔符<br>
+	4.“github地址”为js传递给OC的第一个参数<br>
+	5.“https://github.com/SoftProgramLX/OcAndJs”为js传递给OC的第二个参数<br>
 
 * 实现OC的jsCallToOC()方法
 
@@ -55,11 +57,11 @@
     NSLog(@"js调用OC返回值：%@", params);
 }
 ```
-这里params[0]输出是github地址，params[1]输出是https://github.com/SoftProgramLX/OcAndJs
+	这里params[0]输出是github地址，params[1]输出是https://github.com/SoftProgramLX/OcAndJs
 
 * 关键所在<br>
-目前JS调用OC的jsCallToOC()方法还不会触发，当点击h5页面的按钮时只会触发OC的- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;这个方法。<br>
-需在这个方法里解析request参数的URL值，解析后path的值就是"objc://jsCallToOC#param#github地址#param#https://github.com/SoftProgramLX/OcAndJs"，再继续分解出里面的方法与参数，然后执行[self performSelector:todoM withObject:params afterDelay:0];代码才能触发OC的jsCallToOC()方法。<br>
+	目前JS调用OC的jsCallToOC()方法还不会触发，当点击h5页面的按钮时只会触发OC的- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;这个方法。<br>
+	需在这个方法里解析request参数的URL值，解析后path的值就是"objc://jsCallToOC#param#github地址#param#https://github.com/SoftProgramLX/OcAndJs"，再继续分解出里面的方法与参数，然后执行[self performSelector:todoM withObject:params afterDelay:0];代码才能触发OC的jsCallToOC()方法。<br>
 代码如下：<br>
 
 ```objective-c
@@ -96,9 +98,11 @@
     return YES;
 }
 ```
-说明：<br>这里判断sels.count>1的目的是判断有无传参<br>
-若无参数则定义方法- (void)jsCallToOC；<br>
-若有参数则定义方法- (void)jsCallToOC:(NSArray *)params。
+	说明：<br>
+	这里判断sels.count>1的目的是判断有无传参<br>
+	若无参数则定义方法- (void)jsCallToOC；<br>
+	若有参数则定义方法- (void)jsCallToOC:(NSArray *)params。
+
 -----
 
 ##`三.额外方法`
