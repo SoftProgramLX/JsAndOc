@@ -38,7 +38,7 @@
 	}
 ```
 
-说明：
+	说明：<br>
 	1.“objc://”为自定义的OC识别JS调用的标识<br>
 	2.“jsCallToOC”为需调用的OC方法<br>
 	3.“#param#”为自定义的方法与参数或参数与参数的分隔符<br>
@@ -99,7 +99,7 @@
     return YES;
 }
 ```
-说明：<br>
+	说明：<br>
 	这里判断sels.count>1的目的是判断有无传参<br>
 	若无参数则定义方法- (void)jsCallToOC；<br>
 	若有参数则定义方法- (void)jsCallToOC:(NSArray *)params。
@@ -132,4 +132,6 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
 }
 ```
-QQ：2239344645
+<br>
+###QQ：2239344645
+<br>
