@@ -39,6 +39,36 @@
     }
 }
 
+- (void)jsCallToOC:(NSArray *)params
+{
+    dataArr = [NSArray arrayWithArray:params];
+    alertV = [[UIAlertView alloc] initWithTitle:@"js已经调用了OC方法" message:@"查看控制台的信息，点击取消会再触发OC调用js" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alertV.tag = 9666;
+    [alertV show];
+    
+    NSLog(@"js调用OC返回值：%@", params);
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag != 9666) {
+        return;
+    }
+    
+    if (buttonIndex == 0) {
+        NSString *str = [self.webView stringByEvaluatingJavaScriptFromString:@"postStr('ocToJs')"];
+        NSLog(@"OC调用js返回值：%@",str);
+        
+        alertV = [[UIAlertView alloc] initWithTitle:nil message:str delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alertV show];
+    } else {
+        LXWebViewController *webVC = [[LXWebViewController alloc] init];
+        webVC.title = dataArr[0];
+        webVC.url = dataArr[1];
+        [self.navigationController pushViewController:webVC animated:YES];
+    }
+}
+
 #pragma mark -- UIWebViewDelegate委托定义方法
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
@@ -72,36 +102,6 @@
     }
     
     return YES;
-}
-
-- (void)jsCallToOC:(NSArray *)params
-{
-    dataArr = params;
-    alertV = [[UIAlertView alloc] initWithTitle:@"js已经调用了OC方法" message:@"查看控制台的信息，点击取消会再触发OC调用js" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    alertV.tag = 9666;
-    [alertV show];
-    
-    NSLog(@"js调用OC返回值：%@", params);
-    
-}
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (alertView.tag != 9666) {
-        return;
-    }
-    
-    if (buttonIndex == 0) {
-        NSString *str = [self.webView stringByEvaluatingJavaScriptFromString:@"postStr(\"ocToJs\");"];
-        NSLog(@"OC调用js返回值：%@",str);
-        
-        alertV = [[UIAlertView alloc] initWithTitle:nil message:str delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alertV show];
-    } else {
-        LXWebViewController *webVC = [[LXWebViewController alloc] init];
-        webVC.title = dataArr[0];
-        webVC.url = dataArr[1];
-        [self.navigationController pushViewController:webVC animated:YES];
-    }
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView

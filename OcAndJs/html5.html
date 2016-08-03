@@ -3,12 +3,12 @@
 	<body>
 		<title>OCAndJS</title>
 		<script type="text/javascript">
-			function jsCallToOC() {
+			function jsCallOCClicked() {
 				window.location.href = "objc://jsCallToOC#param#github地址#param#https://github.com/SoftProgramLX/OcAndJs";
 			}
 
 			function postStr(string) {
-			  	return 'I am the return parameter JS';
+			  	return 'I am the return parameter JS, and param ' + string;
 			}
 
 		</script>
@@ -32,7 +32,7 @@
 
         </br></br></br>
         <p>
-            <button onclick="jsCallToOC()">
+            <button onclick="jsCallOCClicked()">
                 <h1>jsCallOC</h1>
             </button>
         </p>
