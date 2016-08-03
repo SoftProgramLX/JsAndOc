@@ -136,7 +136,7 @@
 }
 
 //禁止复制
-- (void)deletePrompt
+- (void)deletePrompt 
 {
     [self.webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitUserSelect='none';"];
     [self.webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none';"];
